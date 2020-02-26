@@ -1,0 +1,49 @@
+*{
+ padding: 0;
+ margin: 0;
+ box-sizing: border-box;   
+}
+body {
+    height: 100vh;
+    display: flex;
+    background: rgb(63, 44, 83);
+}
+
+.memory-game {
+width: 440px;
+height:340px;
+margin: auto;
+display:flex;
+flex-wrap: wrap;
+border:2px solid magenta; /* to add 3-D to the memory card*/
+perspective: 1000px;
+}
+.memory-card {
+    width: calc(25% - 10px);
+    height:calc(33.333% - 10px);
+    position: relative;
+    margin: 5px;
+    transform:  scale(1);
+    transform-style: preserve-3d;/* 3-d effect to d card*/
+     transition: transform .5s;
+}   
+.memory-card:active {
+    transform: scale(.97);
+    transition: transform .2s;
+}
+.memory-card.flip{
+    transform: rotateY(180deg);
+}
+.front-face,
+.back-face {
+    width: 100%;
+    height:100%;  
+    padding:20px;
+    position: absolute;
+    border-radius: 5px;
+    border: blue;
+    backface-visibility: hidden;/*to stop seeing the mirrored image of the elemet bcos every html element has its back image*/
+    }
+    .front-face {
+        transform: rotateY(180deg);
+    } 
